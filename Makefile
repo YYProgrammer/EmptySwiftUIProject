@@ -12,3 +12,9 @@ export LANG=en_US.UTF-8
 
 gen:
 	$(HIDE)xcodegen generate
+
+fix:
+	$(HIDE)./scripts/swiftformat/swiftformat . --swiftversion 5 --exclude Pods
+	$(HIDE)./scripts/swiftlint/swiftlint --fix
+	$(HIDE)./scripts/swiftlint/swiftlint --strict > /var/tmp/swiftlint-strict.log
+	$(HIDE)./scripts/check-strict.sh

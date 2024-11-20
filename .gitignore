@@ -48,4 +48,7 @@ DerivedData/
 *.xccheckout
 *.moved-aside
 *.xcuserstate
-*.xcscmblueprint 
+*.xcscmblueprint
+
+# SwiftLint
+.swiftlint.report.json 

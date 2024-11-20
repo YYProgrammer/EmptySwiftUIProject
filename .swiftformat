@@ -1,0 +1,9 @@
+--exclude NaturalCore/NaturalApi/GraphQL/API.swift
+--exclude SourceFramework
+--exclude NaturalKit/NaturalKit/Api/GraphQL/API.swift
+--disable hoistPatternLet
+--disable sortedImports
+--disable enumNamespaces
+--disable initCoderUnavailable
+--exclude NaturalCore/NaturalUtil/Cent
+--exclude NaturalCore/NaturalUtil/Dollar
