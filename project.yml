@@ -1,0 +1,39 @@
+name: EmptySwiftUIProject
+options:
+  bundleIdPrefix: com.example
+  deploymentTarget:
+    iOS: 15.0
+
+settings:
+  base:
+    DEVELOPMENT_TEAM: "" # 在这里填入你的开发者团队 ID
+
+targets:
+  EmptySwiftUIProject:
+    type: application
+    platform: iOS
+    sources:
+      - path: EmptySwiftUIProject
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.example.EmptySwiftUIProject
+        INFOPLIST_KEY_UILaunchScreen_Generation: YES
+    info:
+      path: EmptySwiftUIProject/Info.plist
+      properties:
+        CFBundleName: EmptySwiftUIProject
+        UIApplicationSceneManifest:
+          UIApplicationSupportsMultipleScenes: false
+          UISceneConfigurations:
+            UIWindowSceneSessionRoleApplication:
+              - UISceneDelegateClassName: $(PRODUCT_MODULE_NAME).SceneDelegate
+                UISceneConfigurationName: Default Configuration
+        LSRequiresIPhoneOS: true
+        UILaunchStoryboardName: ""
+        UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationPortrait
+        UISupportedInterfaceOrientations~ipad:
+          - UIInterfaceOrientationPortrait
+          - UIInterfaceOrientationPortraitUpsideDown
+          - UIInterfaceOrientationLandscapeLeft
+          - UIInterfaceOrientationLandscapeRight 
