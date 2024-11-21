@@ -11,7 +11,7 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
 gen:
-	$(HIDE)xcodegen generate
+	$(HIDE)scripts/xcodegen/bin/xcodegen -s project.yml
 	$(HIDE)pod install
 
 fix:
