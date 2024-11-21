@@ -30,11 +30,23 @@ jobs:
     
     - name: Build
       run: |
-        xcodebuild clean build -workspace EmptySwiftUIProject.xcworkspace -scheme EmptySwiftUIProject -destination 'platform=iOS Simulator,name=iPhone 14'
+        xcodebuild clean build \
+          -workspace EmptySwiftUIProject.xcworkspace \
+          -scheme EmptySwiftUIProject \
+          -destination 'platform=iOS Simulator,name=iPhone 14' \
+          CODE_SIGN_IDENTITY="" \
+          CODE_SIGNING_REQUIRED=NO \
+          CODE_SIGNING_ALLOWED=NO
         
     - name: Run tests
       run: |
-        xcodebuild test -workspace EmptySwiftUIProject.xcworkspace -scheme EmptySwiftUIProject -destination 'platform=iOS Simulator,name=iPhone 14'
+        xcodebuild test \
+          -workspace EmptySwiftUIProject.xcworkspace \
+          -scheme EmptySwiftUIProject \
+          -destination 'platform=iOS Simulator,name=iPhone 14' \
+          CODE_SIGN_IDENTITY="" \
+          CODE_SIGNING_REQUIRED=NO \
+          CODE_SIGNING_ALLOWED=NO
         
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v3
