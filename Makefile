@@ -12,6 +12,7 @@ export LANG=en_US.UTF-8
 
 gen:
 	$(HIDE)xcodegen generate
+	$(HIDE)pod install
 
 fix:
 	$(HIDE)./scripts/swiftformat/swiftformat . --swiftversion 5 --exclude Pods

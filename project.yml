@@ -1,6 +1,6 @@
 name: EmptySwiftUIProject
 options:
-  bundleIdPrefix: com.example
+  bundleIdPrefix: com.your.organization
   deploymentTarget:
     iOS: 15.0
 
@@ -13,27 +13,23 @@ targets:
     type: application
     platform: iOS
     sources:
-      - path: EmptySwiftUIProject
+      - EmptySwiftUIProject
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: com.example.EmptySwiftUIProject
-        INFOPLIST_KEY_UILaunchScreen_Generation: YES
-    info:
-      path: EmptySwiftUIProject/Info.plist
-      properties:
-        CFBundleName: EmptySwiftUIProject
-        UIApplicationSceneManifest:
-          UIApplicationSupportsMultipleScenes: false
-          UISceneConfigurations:
-            UIWindowSceneSessionRoleApplication:
-              - UISceneDelegateClassName: $(PRODUCT_MODULE_NAME).SceneDelegate
-                UISceneConfigurationName: Default Configuration
-        LSRequiresIPhoneOS: true
-        UILaunchStoryboardName: ""
-        UISupportedInterfaceOrientations:
-          - UIInterfaceOrientationPortrait
-        UISupportedInterfaceOrientations~ipad:
-          - UIInterfaceOrientationPortrait
-          - UIInterfaceOrientationPortraitUpsideDown
-          - UIInterfaceOrientationLandscapeLeft
-          - UIInterfaceOrientationLandscapeRight 
+        INFOPLIST_FILE: EmptySwiftUIProject/Info.plist
+        PRODUCT_BUNDLE_IDENTIFIER: com.your.organization.EmptySwiftUIProject
+    
+    # 添加CocoaPods支持
+    dependencies:
+      - sdk: UIKit.framework
+      - sdk: SwiftUI.framework
+
+# 添加CocoaPods配置
+projectReferences:
+  - path: Pods/Pods.xcodeproj
+
+schemes:
+  EmptySwiftUIProject:
+    build:
+      targets:
+        EmptySwiftUIProject: all

@@ -51,4 +51,9 @@ DerivedData/
 *.xcscmblueprint
 
 # SwiftLint
-.swiftlint.report.json 
+.swiftlint.report.json
+
+# CocoaPods
+Pods/
+*.xcworkspace
+!default.xcworkspace 

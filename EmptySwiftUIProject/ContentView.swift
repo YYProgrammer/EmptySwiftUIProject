@@ -6,13 +6,16 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct ContentView: View {
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
+            WebImage(url: URL(string: "https://fastly.picsum.photos/id/9/250/250.jpg?hmac=tqDH5wEWHDN76mBIWEPzg1in6egMl49qZeguSaH9_VI"))
+                .resizable()
+                .scaledToFit()
+                .frame(width: 200, height: 200)
+            
             Text("Hello, world!")
         }
         .padding()
