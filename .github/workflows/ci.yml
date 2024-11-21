@@ -1,0 +1,36 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: macos-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Xcode
+      uses: maxim-lobanov/setup-xcode@v1
+      with:
+        xcode-version: 15.3
+    
+    - name: Install SwiftLint
+      run: brew install swiftlint
+      
+    - name: Run SwiftLint
+      run: swiftlint lint --reporter github-actions-logging
+    
+    - name: Build
+      run: |
+        xcodebuild clean build -scheme EmptySwiftUIProject -destination 'platform=iOS Simulator,name=iPhone 14'
+        
+    - name: Run tests
+      run: |
+        xcodebuild test -scheme EmptySwiftUIProject -destination 'platform=iOS Simulator,name=iPhone 14'
+        
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v3
